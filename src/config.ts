@@ -25,34 +25,43 @@ export const PRODUCT = {
     'Built for industrial telematics, edge computing and critical IoT networks.',
 } as const;
 
-// ── Pricing ───────────────────────────────────────────────────────────────────
+// ── Pricing / CTA ─────────────────────────────────────────────────────────────
 export const PRICING = {
-  amount:            '$2,490 USD',
-  note:              'Unit price · Tax not included · Shipping quoted per project',
-  warranty:          '12-month warranty · Nexara technical support included',
-  availabilityLabel: 'Available now',
-  ctaTitle:          'Deploy the COREX-9 in your operation',
+  availabilityLabel: 'Request a quote',
+  ctaTitle:          'Get a quote for the COREX-9',
   ctaDesc:
-    'Eight ARM cores, native cellular connectivity, integrated GNSS and professional-grade ' +
-    'industrial protections — one unit ready to deploy in the field.',
+    'Tell us your expected volume and any custom requirements. ' +
+    'Our team will get back to you with pricing, lead times, and integration support.',
+} as const;
+
+// ── Quote form ────────────────────────────────────────────────────────────────
+export const QUOTE_FORM = {
+  emailLabel:      'Work email',
+  emailPlaceholder:'you@company.com',
+  qtyLabel:        'Expected quantity',
+  qtyPlaceholder:  'e.g. 50',
+  periodLabel:     'per',
+  periodOptions:   ['month', 'quarter', 'year'] as const,
+  msgLabel:        'Custom requirements (optional)',
+  msgPlaceholder:  'Describe any modifications, certifications, or integration needs…',
+  submitBtn:       'Request quote',
+  submitLoading:   'Sending…',
 } as const;
 
 // ── UI / Button labels ────────────────────────────────────────────────────────
 export const UI = {
-  btnBuy:        'Buy now',
-  btnBuyLoading: 'Processing...',
-  btnQuote:      'Request a quote',
-  btnSpecs:      'View specifications',
-  btnCancel:     'Close',
+  btnQuote:  'Request a quote',
+  btnSpecs:  'View specifications',
+  btnCancel: 'Close',
 } as const;
 
-// ── Simulated payment error ───────────────────────────────────────────────────
-export const PAYMENT_ERROR = {
-  title: 'Payment could not be processed',
+// ── Quote submission error ────────────────────────────────────────────────────
+export const QUOTE_ERROR = {
+  title: 'Quote request could not be sent',
   body:
-    'The payment processor did not respond within the expected time. ' +
-    'Please try again in a few moments or contact us directly to arrange your purchase.',
-  code:  'ERR_GATEWAY_TIMEOUT_502',
+    'We were unable to submit your request at this time. ' +
+    'Please try again or reach us directly at sales@nexarasystems.com.',
+  code:  'ERR_SUBMIT_TIMEOUT_502',
 } as const;
 
 // ── Hero stats ────────────────────────────────────────────────────────────────
@@ -167,5 +176,5 @@ export const NAV_LINKS = [
   { href: '#gallery',      label: 'Product'        },
   { href: '#applications', label: 'Applications'   },
   { href: '#specs',        label: 'Specifications' },
-  { href: '#cta',          label: 'Buy'            },
+  { href: '#cta',          label: 'Quote'          },
 ] as const;

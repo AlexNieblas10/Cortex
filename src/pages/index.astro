@@ -6,8 +6,9 @@ import {
 	COMPANY,
 	PRODUCT,
 	PRICING,
+	QUOTE_FORM,
 	UI,
-	PAYMENT_ERROR,
+	QUOTE_ERROR,
 	HERO_STATS,
 	STRIP_FEATURES,
 	USE_CASES,
@@ -634,7 +635,7 @@ import {
 				padding: 7rem 2rem;
 			}
 			.cta-inner {
-				max-width: 700px;
+				max-width: 560px;
 				margin: 0 auto;
 			}
 			.cta-title {
@@ -649,50 +650,83 @@ import {
 				margin-bottom: 2.5rem;
 				line-height: 1.8;
 			}
-			.cta-price {
-				font-size: 3rem;
-				font-weight: 900;
-				color: var(--accent);
-				margin-bottom: 0.25rem;
-				letter-spacing: -0.04em;
+			#quote-form {
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				gap: 1.25rem;
 			}
-			.cta-price-note {
-				font-size: 0.85rem;
+			.form-group {
+				display: flex;
+				flex-direction: column;
+				gap: 0.4rem;
+			}
+			.form-row {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 1rem;
+			}
+			#quote-form label {
+				font-size: 0.82rem;
+				font-weight: 600;
 				color: var(--muted);
-				margin-bottom: 2rem;
+				letter-spacing: 0.02em;
 			}
-			#btn-comprar {
+			#quote-form input,
+			#quote-form select,
+			#quote-form textarea {
+				background: var(--bg3);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				color: var(--text);
+				font-size: 0.95rem;
+				padding: 0.7rem 1rem;
+				width: 100%;
+				transition: border-color 0.15s;
+				font-family: inherit;
+				resize: vertical;
+			}
+			#quote-form input:focus,
+			#quote-form select:focus,
+			#quote-form textarea:focus {
+				outline: none;
+				border-color: var(--accent);
+				box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+			}
+			#quote-form input::placeholder,
+			#quote-form textarea::placeholder {
+				color: var(--muted);
+				opacity: 0.6;
+			}
+			#quote-form select option {
+				background: var(--bg3);
+			}
+			#btn-quote {
 				padding: 1.1rem 3rem;
 				background: var(--accent);
 				color: #fff;
 				border-radius: var(--radius);
-				font-size: 1.1rem;
+				font-size: 1.05rem;
 				font-weight: 800;
 				transition: all 0.2s;
 				box-shadow: 0 0 0 0 var(--accent-glow);
+				align-self: center;
+				margin-top: 0.5rem;
+				width: 100%;
 			}
-			#btn-comprar:hover:not(:disabled) {
+			#btn-quote:hover:not(:disabled) {
 				background: var(--accent2);
 				transform: translateY(-2px);
 				box-shadow: 0 8px 32px var(--accent-glow);
 			}
-			#btn-comprar:disabled {
+			#btn-quote:disabled {
 				opacity: 0.6;
 				cursor: not-allowed;
 			}
-			.cta-guarantee {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 0.5rem;
-				margin-top: 1.5rem;
-				font-size: 0.8rem;
-				color: var(--muted);
-			}
-			.cta-guarantee-icon {
-				color: var(--success);
-				display: flex;
-				align-items: center;
+			@media (max-width: 480px) {
+				.form-row {
+					grid-template-columns: 1fr;
+				}
 			}
 
 			.modal-overlay {
@@ -711,7 +745,7 @@ import {
 			}
 			.modal {
 				background: var(--bg3);
-				border: 1px solid rgba(239, 68, 68, 0.3);
+				border: 1px solid rgba(245, 158, 11, 0.3);
 				border-radius: var(--radius-lg);
 				padding: 2.5rem;
 				max-width: 420px;
@@ -719,7 +753,7 @@ import {
 				text-align: center;
 				box-shadow:
 					0 24px 80px rgba(0, 0, 0, 0.6),
-					0 0 60px rgba(239, 68, 68, 0.1);
+					0 0 60px rgba(245, 158, 11, 0.08);
 				animation: slideUp 0.25s ease;
 			}
 			@keyframes slideUp {
@@ -736,13 +770,13 @@ import {
 				width: 64px;
 				height: 64px;
 				border-radius: 50%;
-				background: rgba(239, 68, 68, 0.1);
-				border: 1px solid rgba(239, 68, 68, 0.2);
+				background: rgba(245, 158, 11, 0.1);
+				border: 1px solid rgba(245, 158, 11, 0.2);
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin: 0 auto 1.5rem;
-				color: #ef4444;
+				color: #f59e0b;
 			}
 			.modal-title {
 				font-size: 1.2rem;
@@ -757,9 +791,9 @@ import {
 			}
 			.modal-code {
 				display: inline-block;
-				background: rgba(239, 68, 68, 0.1);
-				color: #fca5a5;
-				border: 1px solid rgba(239, 68, 68, 0.2);
+				background: rgba(245, 158, 11, 0.1);
+				color: #fcd34d;
+				border: 1px solid rgba(245, 158, 11, 0.2);
 				border-radius: 6px;
 				padding: 0.2rem 0.6rem;
 				font-family: monospace;
@@ -868,7 +902,7 @@ import {
 					</h1>
 					<p class='hero-desc'>{PRODUCT.description}</p>
 					<div class='hero-actions'>
-						<button class='btn-primary' id='btn-hero-buy'>{UI.btnBuy}</button>
+						<button class='btn-primary' id='btn-hero-buy'>{UI.btnQuote}</button>
 						<a href='#specs' class='btn-secondary'>{UI.btnSpecs}</a>
 					</div>
 					<div class='hero-stats'>
@@ -1042,15 +1076,46 @@ import {
 				<div class='section-tag'>{PRICING.availabilityLabel}</div>
 				<h2 class='cta-title'>{PRICING.ctaTitle}</h2>
 				<p class='cta-desc'>{PRICING.ctaDesc}</p>
-				<div class='cta-price'>{PRICING.amount}</div>
-				<div class='cta-price-note'>{PRICING.note}</div>
-				<button id='btn-comprar'>{UI.btnBuy}</button>
-				<p class='cta-guarantee'>
-					<span class='cta-guarantee-icon'
-						><Icon name='shield' size={14} /></span
-					>
-					{PRICING.warranty}
-				</p>
+				<form id='quote-form' novalidate>
+					<div class='form-group'>
+						<label for='q-email'>{QUOTE_FORM.emailLabel}</label>
+						<input
+							id='q-email'
+							type='email'
+							name='email'
+							placeholder={QUOTE_FORM.emailPlaceholder}
+							required
+						/>
+					</div>
+					<div class='form-row'>
+						<div class='form-group'>
+							<label for='q-qty'>{QUOTE_FORM.qtyLabel}</label>
+							<input
+								id='q-qty'
+								type='number'
+								name='quantity'
+								min='1'
+								placeholder={QUOTE_FORM.qtyPlaceholder}
+								required
+							/>
+						</div>
+						<div class='form-group'>
+							<label for='q-period'>{QUOTE_FORM.periodLabel}</label>
+							<select id='q-period' name='period'>
+								{QUOTE_FORM.periodOptions.map((o) => <option value={o}>{o}</option>)}
+							</select>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='q-msg'>{QUOTE_FORM.msgLabel}</label>
+						<textarea
+							id='q-msg'
+							name='message'
+							rows='3'
+							placeholder={QUOTE_FORM.msgPlaceholder}></textarea>
+					</div>
+					<button type='submit' id='btn-quote'>{QUOTE_FORM.submitBtn}</button>
+				</form>
 			</div>
 		</section>
 
@@ -1081,9 +1146,9 @@ import {
 				<div class='modal-icon-wrap'>
 					<Icon name='alert-triangle' size={32} />
 				</div>
-				<h3 class='modal-title' id='modal-title'>{PAYMENT_ERROR.title}</h3>
-				<p class='modal-body'>{PAYMENT_ERROR.body}</p>
-				<code class='modal-code'>{PAYMENT_ERROR.code}</code>
+				<h3 class='modal-title' id='modal-title'>{QUOTE_ERROR.title}</h3>
+				<p class='modal-body'>{QUOTE_ERROR.body}</p>
+				<code class='modal-code'>{QUOTE_ERROR.code}</code>
 				<div class='modal-actions'>
 					<button class='modal-dismiss' id='modal-dismiss'
 						>{UI.btnCancel}</button
@@ -1124,38 +1189,41 @@ import {
 				thumb.addEventListener('click', () => switchImage(thumb.dataset.img!))
 			)
 
-			const buyBtn = document.getElementById('btn-comprar') as HTMLButtonElement
-			const heroBuyBtn = document.getElementById(
-				'btn-hero-buy'
-			) as HTMLButtonElement
+			const heroCta = document.getElementById('btn-hero-buy') as HTMLButtonElement
+			const quoteForm = document.getElementById('quote-form') as HTMLFormElement
+			const submitBtn = document.getElementById('btn-quote') as HTMLButtonElement
 			const overlay = document.getElementById('modal-overlay') as HTMLDivElement
 			const modalDismiss = document.getElementById(
 				'modal-dismiss'
 			) as HTMLButtonElement
 
-			async function handleBuy() {
-				buyBtn.disabled = true
-				buyBtn.textContent = 'Procesando...'
+			heroCta.addEventListener('click', () => {
+				document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
+			})
 
+			quoteForm.addEventListener('submit', async (e) => {
+				e.preventDefault()
+				if (!quoteForm.checkValidity()) {
+					quoteForm.reportValidity()
+					return
+				}
+				submitBtn.disabled = true
+				submitBtn.textContent = 'Sending…'
+				const data = Object.fromEntries(new FormData(quoteForm))
 				try {
 					await fetch('/api/track', {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ action: 'buy_click', timestamp: Date.now() })
+						body: JSON.stringify({
+							action: 'quote_request',
+							timestamp: Date.now(),
+							...data
+						})
 					})
 				} catch (_) {}
-
-				setTimeout(() => {
-					buyBtn.disabled = false
-					buyBtn.textContent = 'Buy now'
-					overlay.classList.add('open')
-				}, 1400)
-			}
-
-			buyBtn.addEventListener('click', handleBuy)
-			heroBuyBtn.addEventListener('click', () => {
-				document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
-				setTimeout(handleBuy, 600)
+				submitBtn.disabled = false
+				submitBtn.textContent = 'Request quote'
+				overlay.classList.add('open')
 			})
 
 			modalDismiss.addEventListener('click', () =>
