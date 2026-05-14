@@ -176,5 +176,73 @@ export const NAV_LINKS = [
   { href: '#gallery',      label: 'Product'        },
   { href: '#applications', label: 'Applications'   },
   { href: '#specs',        label: 'Specifications' },
+  { href: '#about',        label: 'About'          },
   { href: '#cta',          label: 'Quote'          },
 ] as const;
+
+// ── About Us ──────────────────────────────────────────────────────────────────
+export const ABOUT = {
+  tag:   'About Nexara Systems',
+  title: 'Decades of industrial expertise, trusted worldwide',
+  desc:
+    'Since 2008, Nexara Systems has designed and delivered mission-critical edge computing ' +
+    'solutions to industries where failure is not an option. From our R&D lab to the most demanding field deployments, ' +
+    'every product carries seventeen years of engineering precision.',
+
+  milestones: [
+    { val: '17+',   label: 'Years in the industry'  },
+    { val: '3,200+', label: 'Units deployed globally' },
+    { val: '40+',   label: 'Countries served'         },
+    { val: '98.7%', label: 'Uptime across fleets'     },
+  ],
+
+  testimonials: [
+    {
+      quote:
+        'The COREX-9 replaced three separate devices in our mining fleet. ' +
+        'Eighteen months of continuous operation through Chilean desert conditions — zero failures.',
+      author: 'Carlos M.',
+      role:   'Fleet Operations Manager · Minera del Norte',
+      stars:  5,
+    },
+    {
+      quote:
+        'Integration took less than a day. The CAN-FD bus worked out of the box with our J1939 stack ' +
+        'and LTE signal has been rock-solid across remote sites.',
+      author: 'Petra H.',
+      role:   'Lead Embedded Engineer · TransEurope Logistics',
+      stars:  5,
+    },
+    {
+      quote:
+        "Nexara's support team is exceptional. They helped us adapt firmware for a custom SCADA protocol " +
+        'in under 48 hours. Outstanding product, outstanding company.',
+      author: 'James T.',
+      role:   'OT Systems Architect · PowerGrid Solutions',
+      stars:  5,
+    },
+  ],
+
+  highlights: [
+    {
+      icon:  'award',
+      title: 'ISO 9001 Certified',
+      desc:  'Our quality management system is certified to ISO 9001:2015, ensuring every unit meets the same high standard.',
+    },
+    {
+      icon:  'shield',
+      title: 'CE & FCC Compliant',
+      desc:  'All products carry CE and FCC marks, cleared for deployment across North America, the EU, and Latin America.',
+    },
+    {
+      icon:  'users',
+      title: 'Dedicated engineering support',
+      desc:  'Every client gets direct access to our embedded engineers — not a ticket queue. Real help, real fast.',
+    },
+    {
+      icon:  'globe',
+      title: 'Global distribution network',
+      desc:  'Stocking partners in 12 countries guarantee lead times under two weeks for standard configurations.',
+    },
+  ],
+} as const;
