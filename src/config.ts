@@ -8,27 +8,28 @@ export const COMPANY = {
 
 // ── Product ───────────────────────────────────────────────────────────────────
 export const PRODUCT = {
-  name:       'COREX-9',
+  name:       'COREX-R1',
   shortName:  'COREX',
-  version:    '9',
-  generation: 'Generation 9 · Industrial Series',
+  version:    'R1',
+  generation: 'Prototype R1 · FET3576-C Module',
   tagline:    'Edge Platform for Critical Industry',
   description:
-    'Eight-core ARM embedded computing platform with native LTE/4G connectivity, ' +
-    'integrated GNSS positioning, protected CAN-FD bus and four high-resistance USB ports. ' +
-    'Engineered for uninterrupted operations in heavy transport, industrial automation and remote IoT networks.',
-  badgeLabel: 'New generation',
+    'Linux embedded computer based on the FET3576-C module (Rockchip RK3576), designed for edge ' +
+    'computing, telematics, local control, monitoring, data acquisition and remote communication ' +
+    'in mobile or industrial environments. Features modular architecture with cellular/GNSS, CAN-FD, ' +
+    'protected USB ports, integrated audio, low-side control output and advanced power management.',
+  badgeLabel: 'Preliminary specs',
   chipStatus: 'Unit online',
   chipSub:    'Linux OS · LTE active',
   metaDesc:
-    'COREX-9: 8-core ARM embedded platform with LTE, GNSS, CAN-FD and protected USB. ' +
-    'Built for industrial telematics, edge computing and critical IoT networks.',
+    'COREX-R1: FET3576-C (RK3576) embedded platform with LTE/4G, GNSS, CAN-FD, protected USB and sleep mode. ' +
+    'Built for industrial telematics, edge computing and battery-powered field deployments.',
 } as const;
 
 // ── Pricing / CTA ─────────────────────────────────────────────────────────────
 export const PRICING = {
   availabilityLabel: 'Request a quote',
-  ctaTitle:          'Get a quote for the COREX-9',
+  ctaTitle:          'Get a quote for the COREX-R1',
   ctaDesc:
     'Tell us your expected volume and any custom requirements. ' +
     'Our team will get back to you with pricing, lead times, and integration support.',
@@ -66,20 +67,20 @@ export const QUOTE_ERROR = {
 
 // ── Hero stats ────────────────────────────────────────────────────────────────
 export const HERO_STATS = [
-  { val: '8 cores',  label: 'ARM Cortex-A76/A55' },
-  { val: '4× USB',   label: 'AntiKill protection'  },
-  { val: '9–36 VDC', label: 'Industrial range'     },
-  { val: 'CAN-FD',   label: 'Vehicle / OBD bus'    },
+  { val: 'RK3576',   label: 'FET3576-C module'     },
+  { val: 'LTE / 4G', label: 'SIM7600G-H · GNSS'   },
+  { val: '9–36 VDC', label: '12 V & 24 V systems'  },
+  { val: 'CAN-FD',   label: 'OBD2 / J1939 ready'  },
 ] as const;
 
 // ── Features strip ────────────────────────────────────────────────────────────
 export const STRIP_FEATURES = [
-  { icon: 'cpu',        val: 'RK3588',    label: '8-core ARM'      },
-  { icon: 'wifi',       val: '4G / LTE',  label: 'SIM7600G-H'      },
-  { icon: 'navigation', val: 'GNSS',      label: 'GPS + GLONASS'   },
-  { icon: 'zap',        val: 'CAN-FD',    label: 'Industrial bus'  },
-  { icon: 'shield',     val: 'AntiKill',  label: 'USB protection'  },
-  { icon: 'battery',    val: 'PowerSave', label: 'Sleep < 200 ms'  },
+  { icon: 'cpu',        val: 'RK3576',      label: 'FET3576-C module'   },
+  { icon: 'wifi',       val: '4G / LTE',    label: 'SIM7600G-H'         },
+  { icon: 'navigation', val: 'GNSS / GPS',  label: 'Integrated antenna' },
+  { icon: 'zap',        val: 'CAN-FD',      label: 'OBD2 / J1939'       },
+  { icon: 'shield',     val: 'USB Killer',  label: 'Protection'          },
+  { icon: 'battery',    val: 'Sleep mode',  label: 'Low consumption'     },
 ] as const;
 
 // ── Use cases ─────────────────────────────────────────────────────────────────
@@ -88,14 +89,14 @@ export const USE_CASES = [
     icon:  'truck',
     title: 'Fleet telematics',
     desc:
-      'Continuous GPS tracking, CAN odometer readings and OBD/J1939 diagnostics ' +
+      'Continuous GPS/GNSS tracking, CAN-FD odometer readings and OBD/J1939 diagnostics ' +
       'with real-time LTE transmission for heavy transport and mining fleet operators.',
   },
   {
     icon:  'tool',
-    title: 'Field automation',
+    title: 'Local control & automation',
     desc:
-      'Lightweight embedded PLC for signal acquisition, actuator control and local ' +
+      'Embedded controller for signal acquisition, relay activation via low-side output and local ' +
       'reporting without cloud dependency in plants and remote installations.',
   },
   {
@@ -107,10 +108,10 @@ export const USE_CASES = [
   },
   {
     icon:  'camera',
-    title: 'AI-powered visual inspection',
+    title: 'Vision & data acquisition',
     desc:
-      'Multi-camera USB processing directly at the edge using the RK3588 neural engine, ' +
-      'eliminating cloud latency and bandwidth requirements.',
+      'Multi-camera USB processing and data acquisition at the edge using the RK3576, ' +
+      'eliminating cloud latency and reducing bandwidth requirements.',
   },
   {
     icon:  'lock',
@@ -124,51 +125,58 @@ export const USE_CASES = [
     title: 'Energy management & SCADA',
     desc:
       'Local monitoring of substations, generators and solar plants with ' +
-      '9–36 VDC tolerance and continuous operation without periodic maintenance.',
+      '9–36 VDC tolerance and sleep mode for battery-powered deployments.',
   },
 ] as const;
 
 // ── Technical specifications ──────────────────────────────────────────────────
 export const SPECS = [
-  { label: 'Processor',           value: 'Rockchip RK3588 · 4× Cortex-A76 + 4× Cortex-A55' },
-  { label: 'Operating system',    value: 'Embedded Linux (Yocto / Debian compatible)'        },
-  { label: 'Cellular module',     value: 'SIM7600G-H · Cat-4 LTE / 4G global'                },
-  { label: 'GNSS',                value: 'GPS, GLONASS, BeiDou, Galileo (integrated)'         },
-  { label: 'Field bus',           value: 'CAN-FD with ESD-protected transceiver'              },
-  { label: 'USB ports',           value: '4× USB 3.0 Host · Integrated AntiKill protection'   },
-  { label: 'Audio',               value: '2× amplified output 3 W / 8 Ω'                     },
-  { label: 'Control output',      value: '1× Low-side 2 A for relay or inductive load'       },
-  { label: 'Power input',         value: '9–36 VDC · Native 12 V and 24 V compatible'        },
-  { label: 'Power management',    value: 'Auxiliary MCU · PowerSave sleep · sequential boot'  },
-  { label: 'SIM',                 value: 'Removable Nano-SIM · dual-SIM support via firmware' },
-  { label: 'Status indicators',   value: '6× LED: power, system, LTE, GNSS, CAN, fault'      },
-  { label: 'Thermal management',  value: 'Internal fan connector · aluminum heatsink profile' },
-  { label: 'Electrical protections', value: 'ESD · short circuit · reverse polarity · transients · OCP' },
+  { label: 'Compute module',      value: 'FET3576-C · Rockchip RK3576 · high-performance ARM' },
+  { label: 'Operating system',    value: 'Embedded Linux'                                      },
+  { label: 'Memory & storage',    value: 'RAM + eMMC integrated in FET3576-C (version-dependent)' },
+  { label: 'Cellular module',     value: 'SIM7600G-H · LTE / 4G'                              },
+  { label: 'GNSS',                value: 'Integrated via SIM7600G-H · dedicated antenna connector' },
+  { label: 'Field bus',           value: 'CAN-FD · ESD-protected transceiver · OBD2 / J1939 ready' },
+  { label: 'USB Host ports',      value: 'USB 2.0 Host via hub · USB Killer protection'        },
+  { label: 'USB OTG',             value: 'Service port for programming, recovery & Maskrom'    },
+  { label: 'Audio',               value: 'Amplified outputs · external or internal speakers'   },
+  { label: 'Control output',      value: '1× Low-side for external relay or inductive load'    },
+  { label: 'Power input',         value: '9–36 VDC · compatible with 12 V and 24 V systems'   },
+  { label: 'DC-DC regulation',    value: 'Internal converters + buck-boost for FET3576-C'      },
+  { label: 'Power management',    value: 'Auxiliary MCU · sleep mode · MOSFET / load switches' },
+  { label: 'External wakeup',     value: 'External input for system activation'                },
+  { label: 'SIM',                 value: 'Removable phone-type SIM connector'                  },
+  { label: 'Status indicators',   value: 'LEDs: power · system · LTE · GNSS · comms · fault'  },
+  { label: 'Thermal management',  value: 'Internal fan connector · active cooling ready'       },
 ] as const;
 
 // ── Electrical protection badges ──────────────────────────────────────────────
 export const PROTECTIONS = [
-  'ESD on all ports',
   'Short circuit',
   'Reverse polarity',
-  'Line transients',
   'Overcurrent (OCP)',
-  'AntiKill USB',
-  'Isolated CAN-FD',
-  'Inductive low-side',
+  'Line transients',
+  'Voltage variation',
+  'ESD on all ports',
+  'USB Killer protection',
+  'High-voltage injection (USB)',
+  'CAN-FD line protection',
+  'Low-side inductive load',
+  'Power input protection',
+  'External signal conditioning',
 ] as const;
 
 // ── Image gallery ─────────────────────────────────────────────────────────────
 export const GALLERY = [
-  { src: '/render-hero.png',    label: '3/4 view',       alt: 'COREX-9 front panel — USB ports and connectors' },
-  { src: '/render-antenna.png', label: 'Antenna / Fan',  alt: 'COREX-9 antenna connectors MAIN, AUX, GNSS and fan' },
-  { src: '/render-ports.png',   label: 'Port panel',     alt: 'COREX-9 port panel — front view'                },
+  { src: '/render-hero.png',    label: '3/4 view',       alt: 'COREX-R1 front panel — USB ports and connectors' },
+  { src: '/render-antenna.png', label: 'Antenna / Fan',  alt: 'COREX-R1 antenna connectors cellular, GNSS and fan' },
+  { src: '/render-ports.png',   label: 'Port panel',     alt: 'COREX-R1 port panel — front view'                },
 ] as const;
 
 // ── Specs section side images ─────────────────────────────────────────────────
 export const SPECS_IMAGES = [
-  { src: '/render-iso1.png', alt: 'COREX-9 isometric view — industrial environment' },
-  { src: '/render-iso2.png', alt: 'COREX-9 side view — antenna and fan detail'      },
+  { src: '/render-iso1.png', alt: 'COREX-R1 isometric view — industrial environment' },
+  { src: '/render-iso2.png', alt: 'COREX-R1 side view — antenna and fan detail'      },
 ] as const;
 
 // ── Navigation ────────────────────────────────────────────────────────────────
@@ -199,7 +207,7 @@ export const ABOUT = {
   testimonials: [
     {
       quote:
-        'The COREX-9 replaced three separate devices in our mining fleet. ' +
+        'The COREX-R1 replaced three separate devices in our mining fleet. ' +
         'Eighteen months of continuous operation through Chilean desert conditions — zero failures.',
       author: 'Carlos M.',
       role:   'Fleet Operations Manager · Minera del Norte',
